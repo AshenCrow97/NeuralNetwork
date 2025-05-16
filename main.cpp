@@ -1,7 +1,4 @@
-#include <string>
-
-#include "network.cpp"
-#include "parse.cpp"
+#include "main.hpp"
 
 using namespace std;
 
@@ -91,3 +88,24 @@ int main() {
   cout << "DONE" << endl;
 
 }
+
+
+
+/*
+
+
+  Network() {
+
+    // XOR architecture
+    // layers_.push_back(Layer(2, 4, "relu"));
+    // layers_.push_back(Layer(4, 2, "softmax"));
+
+    // MNIST architecture
+    //layers_.push_back(Layer(784, 64, "leaky_relu"));
+    layers_.push_back(Layer(784, 1024, "leaky_relu"));
+    layers_.push_back(Layer(1024, 10, "softmax"));
+
+  }
+
+
+ */

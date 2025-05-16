@@ -1,19 +1,13 @@
-#define _USE_MATH_DEFINES
-
-#include <cmath>
-#include <string>
-#include <vector>
+#include "activation.hpp"
 
 using namespace std;
-
-#include <iostream>
 
 
 class Activation {
 
   string type_;
 
-  vector<float> relu(const vector<float> &vec) {
+  vector<float> relu(const vector<float> &vec) const {
 
     vector<float> result(vec.size());
 
@@ -25,7 +19,7 @@ class Activation {
 
   }
 
-  vector<float> d_relu (const vector<float> &vec) {
+  vector<float> d_relu (const vector<float> &vec) const {
 
     vector<float> result(vec.size());
 
@@ -37,7 +31,7 @@ class Activation {
 
   }
 
-  vector<float> leaky_relu(const vector<float> &vec) {
+  vector<float> leaky_relu(const vector<float> &vec) const {
 
     float leak = 0.01;
 
@@ -51,7 +45,7 @@ class Activation {
 
   }
 
-  vector<float> d_leaky_relu (const vector<float> &vec) {
+  vector<float> d_leaky_relu (const vector<float> &vec) const {
 
     float leak = 0.01;
 
@@ -65,7 +59,7 @@ class Activation {
 
   }
 
-  vector<float> softmax(const vector<float> &vec) {
+  vector<float> softmax(const vector<float> &vec) const {
 
     vector<float> result = vec;
 
@@ -94,7 +88,7 @@ class Activation {
     return result;
   }
 
-  vector<float> d_softmax(const vector<float> &x) {
+  vector<float> d_softmax(const vector<float> &x) const {
     vector<float> vec (x.size(), 1);
     return vec;
   }
@@ -103,7 +97,7 @@ public:
 
   Activation() {}
 
-  Activation(string activation) {
+  Activation(const string &activation) {
     type_ = activation;
   }
 
@@ -111,7 +105,7 @@ public:
     return type_;
   }
 
-  vector<float> activate(const vector<float> &vec) {
+  vector<float> activate(const vector<float> &vec) const {
 
     if (type_ == "relu") {
       return relu(vec);
@@ -125,7 +119,7 @@ public:
 
   }
 
-  vector<float> deactivate(const vector<float> &vec) {
+  vector<float> deactivate(const vector<float> &vec) const {
 
     if (type_ == "relu") {
       return d_relu(vec);
@@ -143,7 +137,6 @@ public:
 
 /*------------------------------------TESTS---------------------------------- */
 //
-// #include <iostream>
 //
 // // print vector
 // void print(const vector<float> &vec) {

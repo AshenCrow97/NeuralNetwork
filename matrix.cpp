@@ -1,8 +1,8 @@
-#include <vector>
+#include "matrix.hpp"
 
 using namespace std;
 
-// vector + vector, element-wise
+
 vector<float> vecAddElem(const vector<float> &a, const vector<float> &b) {
 
   vector<float> sum (a.size());
@@ -14,10 +14,7 @@ vector<float> vecAddElem(const vector<float> &a, const vector<float> &b) {
   return sum;
 }
 
-// matrix + matrix, element-wise
 void matAdd(vector<vector<float>> &a, const vector<vector<float>> &b) {
-
-  //cout << a.size() << "x" << a[0].size() << " " << b.size() << "x" << b[0].size() << endl;
 
   for (size_t i = 0; i < a.size(); ++i) {
     for (size_t j = 0; j < a[0].size(); ++j)
@@ -27,7 +24,6 @@ void matAdd(vector<vector<float>> &a, const vector<vector<float>> &b) {
 }
 
 
-// vector * vector, element-wise
 vector<float> vecMulElem(const vector<float> &a, const vector<float> &b) {
   vector<float> product (a.size());
 
@@ -39,7 +35,6 @@ vector<float> vecMulElem(const vector<float> &a, const vector<float> &b) {
 }
 
 
-// vector * matrix = vector, (1, n) * (n,m) = (1, m)
 vector<float> matMul(const vector<float> &vec, const vector<vector<float>> &mat) {
   vector<float> result(mat[0].size(), 0);
 
@@ -53,7 +48,6 @@ vector<float> matMul(const vector<float> &vec, const vector<vector<float>> &mat)
 }
 
 
-// matrix * vector = vector, (n, m) * (m, 1) = (n, 1)
 vector<float> matMul(const vector<vector<float>> &mat, const vector<float> &vec) {
 
   vector<float> result(mat.size(), 0);
@@ -68,7 +62,6 @@ vector<float> matMul(const vector<vector<float>> &mat, const vector<float> &vec)
 }
 
 
-// vector * vector = matrix, i.e. dimensions: (n, 1) * (1, m) = (n, m)
 vector<vector<float>> matMul(const vector<float> &a, const vector<float> &b) {
 
   vector<vector<float>> result(a.size(), vector<float>(b.size(), 0));
@@ -83,7 +76,6 @@ vector<vector<float>> matMul(const vector<float> &a, const vector<float> &b) {
 }
 
 
-// scalar * vector, element-wise
 vector<float> vecMul(const float f, const vector<float> &vec) {
 
   vector<float> result(vec.size());
@@ -97,8 +89,6 @@ vector<float> vecMul(const float f, const vector<float> &vec) {
 }
 
 
-// scalar * matrix, element-wise
-// update weights
 void matMul(const float f, vector<vector<float>> &mat) {
 
   for (size_t i = 0; i < mat.size(); ++i) {
@@ -110,12 +100,6 @@ void matMul(const float f, vector<vector<float>> &mat) {
 }
 
 
-
-/*------------------------------------TESTS---------------------------------- */
-//
-#include <iostream>
-
-// print vector
 void print(const vector<float> &vec) {
   for (const auto &x : vec) {
     cout << x << " ";
@@ -123,7 +107,7 @@ void print(const vector<float> &vec) {
   cout << endl;
 }
 
-// print matrix
+
 void print(const vector<vector<float>> &mat) {
   for (const auto &row : mat) {
     for (const auto &val : row) {
@@ -132,6 +116,8 @@ void print(const vector<vector<float>> &mat) {
     cout << endl;
   }
 }
+
+/*------------------------------------TESTS---------------------------------- */
 //
 //
 // int main() {

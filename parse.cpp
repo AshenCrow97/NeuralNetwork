@@ -1,14 +1,9 @@
-#include <algorithm>
-#include <cmath>
-#include <fstream>
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
+#include "parse.hpp"
 
 using namespace std;
 
-vector<vector<float>> readCSV(string path) {
+
+vector<vector<float>> readCSV(const string &path) {
 
   vector<vector<float>> data;
 
@@ -35,7 +30,7 @@ vector<vector<float>> readCSV(string path) {
 }
 
 
-vector<vector<float>> readOneHot(string path, unsigned classes) {
+vector<vector<float>> readOneHot(const string &path, const size_t classes) {
 
   vector<vector<float>> onehot;
 
@@ -112,7 +107,6 @@ void normalize(vector<vector<float>> &data) {
 
 }
 
-//TODO prediction to file
 
 void saveCSV(const vector<int> &vec, const string &filepath) {
 

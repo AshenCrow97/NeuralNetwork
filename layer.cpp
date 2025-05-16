@@ -1,9 +1,4 @@
-#include <random>
-#include <string>
-#include <vector>
-
-#include "activation.cpp"
-#include "matrix.cpp"
+#include "layer.hpp"
 
 using namespace std;
 
@@ -58,7 +53,9 @@ void clip_gradient(vector<float> &vec, float min=-1.0, float max=1.0) {
 
 
 class Layer {
-public:
+
+private:
+
   unsigned input_size_;
   unsigned size_;
   Activation activation_;

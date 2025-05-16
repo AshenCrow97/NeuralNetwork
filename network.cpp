@@ -1,10 +1,6 @@
-#include <cmath>
-#include <iostream>
-#include <vector>
+#include "network.hpp"
 
 using namespace std;
-
-#include "layer.cpp"
 
 
 int argmax(const vector<float> &vec) {
