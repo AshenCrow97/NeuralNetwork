@@ -23,6 +23,7 @@ public:
 
   Activation();
   Activation(const std::string &activation);
+  std::string get_type() const;
   std::vector<float> activate(const std::vector<float> &vec) const;
   std::vector<float> deactivate(const std::vector<float> &vec) const;
 

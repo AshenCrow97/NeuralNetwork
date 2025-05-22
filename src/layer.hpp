@@ -44,5 +44,9 @@ public:
   std::vector<float> backward(const std::vector<float> &inputs, const std::vector<float> &dE);
   void adam(int epoch, float lr=0.01);
   void update(const float lr);
-
+  std::vector<std::vector<float>> get_weights();
+  std::vector<float> get_biases();
+  std::vector<std::vector<float>> get_dw();
+  std::vector<float> get_db();
+  std::vector<float> get_potentials();
 };
