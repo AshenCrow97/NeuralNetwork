@@ -38,15 +38,16 @@ private:
 
 public:
 
-  Layer(unsigned input_size, unsigned size, const std::string &activation);
-  std::vector<float> get_outputs();
+  Layer(size_t input_size, size_t size, const std::string &activation);
+  
   std::vector<float> forward(const std::vector<float> &inputs);
   std::vector<float> backward(const std::vector<float> &inputs, const std::vector<float> &dE);
   void adam(int epoch, float lr=0.01);
   void update(const float lr);
-  std::vector<std::vector<float>> get_weights();
-  std::vector<float> get_biases();
-  std::vector<std::vector<float>> get_dw();
-  std::vector<float> get_db();
-  std::vector<float> get_potentials();
+  std::vector<float> get_outputs();
+  std::vector<float> get_biases() const;
+  std::vector<float> get_db() const;
+  std::vector<float> get_potentials() const;
+  std::vector<std::vector<float>> get_dw() const;
+  std::vector<std::vector<float>> get_weights() const;
 };
